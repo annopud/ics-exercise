@@ -1,4 +1,4 @@
-## Getting Started
+# Getting Started
 
 Install dependencies
 
@@ -12,7 +12,7 @@ Start the application
 npm run start
 ```
 
-#For development
+## For development
 
 Install dependencies
 
@@ -28,8 +28,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-#For unit test
-Unit test
+## For testing
+Unit testing
 
 ```bash
 npm run test
