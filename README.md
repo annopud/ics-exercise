@@ -26,9 +26,16 @@ Run the project for development
 npm run dev
 ```
 
+Additional to keep css continiously update
+
+```bash
+npm run build:css
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## For testing
+
 Unit testing
 
 ```bash
