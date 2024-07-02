@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.test-class {
+  background-color: red;
+}
+
+body {
+  background-color: blue;
+}
