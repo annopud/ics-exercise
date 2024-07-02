@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <title>ICS Exercise - NNode.js</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black h-screen">
+    <div class="flex justify-center items-center h-full">
+        <div class="w-full max-w-[950px] p-2  flex flex-col gap-2 h-full">
+            <form class="rounded-md bg-blue-200 p-2 flex flex-col gap-2 mt-4" id="translate-form">
+                <h4 class="text-2xl">Enter message | UBCO EEpvees neettaahee2</h4>
+                <div class="form-control">
+
+                    <input type="text" name="message" id="translate-input"
+                        class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        placeholder="message">
+                </div>
+                <button type="submit"
+                    class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                    Translate | UBCO Vsaaptmaavee1
+                </button>
+            </form>
+
+            <div class="flex rounded-md bg-blue-200 p-2 text-xl flex-col gap-2 hidden" id="output-form">
+                <div class="flex items-center gap-2">Translate From | UBCO Vsaaptmaavee Gsoon2 :
+                    <div id="language-from" class="rounded-md bg-yellow-100 p-1">
+                        English
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">Translate to | UBCO Vsaaptmaavee Voo2 :
+                    <div id="language-to" class="rounded-md bg-yellow-100 p-1">
+                        UBCO
+                    </div>
+                </div>
+                <div class="text-2xl">Output | UBCO OOuuvquuv1 :
+                    <div id="translate-result" class="rounded-md bg-yellow-100 p-1">
+                    </div>
+                </div>
+            </div>
+            <div class="flex rounded-md bg-red-200 p-2 text-xl flex-col gap-2 hidden" id="error-form">
+                <div class="text-2xl">Error | UBCO OOuuvquuv1 :
+                    <div class="rounded-md bg-yellow-100 p-1" id="error-message">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="./browser-app.js"></script>
+</body>
+
+</html>
