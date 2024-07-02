@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const outputForm = document.getElementById('output-form');
   const errorForm = document.getElementById('error-form');
   const errorMessage = document.getElementById('error-message');
-
   translateForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     translateResult.innerHTML = '';
@@ -22,20 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
     outputForm.classList.add('hidden');
     errorForm.classList.add('hidden');
     translateWarningForm.classList.add('hidden');
-
+    const abortController = new AbortController();
     try {
-      const response = await fetch(
-        'http://localhost:3000/api/v1/translate/english-alien',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            message: e.target.message.value,
-          }),
-        }
-      );
+      const response = await fetch('/api/v1/translate/english-alien', {
+        signal: abortController.signal,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: e.target.message.value,
+        }),
+      });
       const data = await response.json();
       if (response.status !== 200) {
         errorForm.classList.remove('hidden');
@@ -60,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'Something went wrong, please try again | UBCO Tooneevjiiph xeepv xsooph, qmeeaatee vsz aahaaii6';
     } finally {
       translateInput.disabled = false;
+      abortController.abort();
     }
   });
 });

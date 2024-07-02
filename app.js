@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
-const path = require('path');
-const port = 3000;
+
 const cors = require('cors');
 const translateRouter = require('./route/translate.route');
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 app.use(cors());
+require('dotenv').config();
+const port = process.env.PORT || 3000;
 
 // middleware
 app.use(express.static('./public'));
