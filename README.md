@@ -1,15 +1,42 @@
 ## Getting Started
 
-First, run the development server:
+Install dependencies
 
 ```bash
 npm install
 ```
 
-First, run the development server:
+Start the application
 
 ```bash
 npm run start
 ```
 
+#For development
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the project for development
+
+```bash
+npm run dev
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+#For unit test
+Unit test
+
+```bash
+npm run test
+```
+
+or Unit testing with automatically reload
+
+```bash
+npm run test:watch
+```
