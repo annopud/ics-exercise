@@ -18,9 +18,10 @@
                 <h4 class="text-2xl">Enter message | UBCO EEpvees neettaahee2</h4>
                 <div class="form-control">
 
-                    <input type="text" name="message" id="translate-input"
+                    <textarea type="text" name="message" id="translate-input"
                         class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        placeholder="message">
+                        placeholder="message"></textarea>
+
                 </div>
                 <button type="submit"
                     class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
@@ -30,17 +31,19 @@
 
             <div class="flex rounded-md bg-blue-200 p-2 text-xl flex-col gap-2 hidden" id="output-form">
                 <div class="flex items-center gap-2">Translate From | UBCO Vsaaptmaavee Gsoon2 :
-                    <div id="language-from" class="rounded-md bg-yellow-100 p-1">
-                        English
+                    <div id="language-from" class="rounded-md bg-green-200 p-1">
                     </div>
                 </div>
                 <div class="flex items-center gap-2">Translate to | UBCO Vsaaptmaavee Voo2 :
-                    <div id="language-to" class="rounded-md bg-yellow-100 p-1">
-                        UBCO
+                    <div id="language-to" class="rounded-md bg-green-200 p-1">
                     </div>
                 </div>
                 <div class="text-2xl">Output | UBCO OOuuvquuv1 :
-                    <div id="translate-result" class="rounded-md bg-yellow-100 p-1">
+                    <div id="translate-result" class="rounded-md bg-green-200 p-1">
+                    </div>
+                </div>
+                <div class="text-2xl" id="translate-warning-form">Warning | UBCO Xaaspiiph1 :
+                    <div id="translate-warning" class="rounded-md bg-yellow-100 p-1">
                     </div>
                 </div>
             </div>

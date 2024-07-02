@@ -4,13 +4,6 @@ const patternForUbco = /^UBCO (?:(0)|((?:.|\n)*?)([1-9]\d*))$/;
 
 function englishAlienTranslator(body) {
   const inputText = body.message;
-  // console.log("‘UBCO’. Hello, Worddld!", "^UBCO (?:(.*?)([1-9]d*)|(0))$");
-  // let inputText = `UBCO dd0`;
-  // let inputText = `UBCO 0`;
-  // let inputText = `UBCO sdf00000001000
-  // 00001ggg1100001ggg111
-  // f1fgh1.22221`;
-  //   let inputText = `UBCO Jeemmoo Xoosmf2`;
   if (!inputText) {
     return {
       from: null,
@@ -22,12 +15,20 @@ function englishAlienTranslator(body) {
   }
 
   const result = inputText.match(patternForUbco);
+  const wordCountResult = wordCount(inputText);
 
-  if (!result) {
+  if (
+    !result ||
+    wordCountResult.actualWordCount !== wordCountResult.userWordCount
+  ) {
     return {
       from: 'English',
       to: 'UBCO',
       result: englishToAlien(inputText),
+      warning:
+        wordCountResult.actualWordCount !== wordCountResult.userWordCount
+          ? `We assumed you have entered message in English : The actual word count is ${wordCountResult.actualWordCount} but you provided ${wordCountResult.userWordCount}`
+          : null,
     };
   }
 
@@ -35,6 +36,24 @@ function englishAlienTranslator(body) {
     from: 'UBCO',
     to: 'English',
     result: translateToEnglish(inputText),
+    warning:
+      wordCountResult.actualWordCount !== wordCountResult.userWordCount
+        ? `The actual word count is ${wordCountResult.actualWordCount} but you provided ${wordCountResult.userWordCount}`
+        : null,
+  };
+}
+
+function wordCount(alienFormat) {
+  const result = alienFormat.match(patternForUbco);
+  if (!result) {
+    return {
+      actualWordCount: 0,
+      userWordCount: 0,
+    };
+  }
+  return {
+    actualWordCount: result[2].split(' ').length,
+    userWordCount: +result[3],
   };
 }
 

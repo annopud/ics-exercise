@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
   const translateForm = document.getElementById('translate-form');
   const translateInput = document.getElementById('translate-input');
+  const translateWarning = document.getElementById('translate-warning');
+  const translateWarningForm = document.getElementById(
+    'translate-warning-form'
+  );
   const languageFrom = document.getElementById('language-from');
   const languageTo = document.getElementById('language-to');
   const translateResult = document.getElementById('translate-result');
@@ -17,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     translateResult.textContent = '';
     outputForm.classList.add('hidden');
     errorForm.classList.add('hidden');
+    translateWarningForm.classList.add('hidden');
 
     try {
       const response = await fetch(
@@ -32,20 +37,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       );
       const data = await response.json();
-      if (response.status === 200) {
-        translateResult.textContent = data.result;
-        languageFrom.textContent = data.from;
-        languageTo.textContent = data.to;
-        outputForm.classList.remove('hidden');
-      } else {
+      if (response.status !== 200) {
         errorForm.classList.remove('hidden');
         errorMessage.textContent = data.message;
+        return;
+      }
+      translateResult.textContent = data.result;
+      languageFrom.textContent = data.from;
+      languageTo.textContent = data.to;
+      outputForm.classList.remove('hidden');
+      if (data.warning) {
+        translateWarning.textContent = data.warning;
+        translateWarning.classList.remove('hidden');
+        translateWarningForm.classList.remove('hidden');
+      } else {
+        translateWarning.classList.add('hidden');
+        translateWarningForm.classList.add('hidden');
       }
     } catch (error) {
       errorForm.classList.remove('hidden');
       errorMessage.textContent =
         'Something went wrong, please try again | UBCO Tooneevjiiph xeepv xsooph, qmeeaatee vsz aahaaii6';
+    } finally {
+      translateInput.disabled = false;
     }
-    translateInput.disabled = false;
   });
 });
