@@ -554,10 +554,6 @@ video {
   --tw-contain-style:  ;
 }
 
-.static {
-  position: static;
-}
-
 .mt-4 {
   margin-top: 1rem;
 }
@@ -742,10 +738,6 @@ video {
 .ring-gray-300 {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity));
-}
-
-.test-class {
-  background-color: red;
 }
 
 .placeholder\:text-gray-400::-moz-placeholder {
