@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch app.js",
-    "dev:debug": "nodemon -e ejs,css ./app.js",
+    "dev": "nodemon -e ejs,css ./app.js",
     "start": "node app.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
