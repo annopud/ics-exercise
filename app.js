@@ -5,11 +5,21 @@ const cors = require('cors');
 const translateRouter = require('./route/translate.route');
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
-app.use(cors());
+const livereload = require("livereload");
+const connectLiveReload = require("connect-livereload");
+const liveReloadServer = livereload.createServer();
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
 require('dotenv').config();
-const port = process.env.PORT || 3000;
 
+app.use(connectLiveReload());
+
+const port = process.env.PORT || 3000;
 // middleware
+app.use(cors());
 
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
@@ -30,7 +40,7 @@ app.get('/', (req, res) => {
 // error handling middleware
 app.use(notFound);
 app.use(errorHandlerMiddleware);
-const start = async () => {
+const start = () => {
   try {
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);

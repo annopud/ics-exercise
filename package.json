@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js",
+    "dev": "node --watch app.js",
+    "dev:debug": "nodemon -e ejs,css ./app.js",
     "start": "node app.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
@@ -13,7 +14,9 @@
   "author": "annopud",
   "license": "ISC",
   "devDependencies": {
+    "connect-livereload": "^0.6.1",
     "jest": "^29.7.0",
+    "livereload": "^0.9.3",
     "nodemon": "^3.1.4",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
